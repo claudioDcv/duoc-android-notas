@@ -1,5 +1,9 @@
 # duoc android notas
 
+## Version support
+- android Lollipop 5.0
+- create in JAVA
+
 ## MODEL
 
 ```sql
