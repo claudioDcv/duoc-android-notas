@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MantenedorDeNotas</string>
+    <string name="add_evaluation">Agregar Evaluación</string>
+    <string name="add_course">Agregar Curso</string>
+    <string name="add_student">Agregar Estudiante</string>
+    <string name="back_icon">◀</string>
+    <string name="close_icon">×</string>
 </resources>
