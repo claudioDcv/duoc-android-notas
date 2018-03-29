@@ -1,4 +1,4 @@
-package objects;
+package com.dcv.claudio.mantenedordenotas.objects;
 
 /**
  * Created by claudio on 28-03-18.

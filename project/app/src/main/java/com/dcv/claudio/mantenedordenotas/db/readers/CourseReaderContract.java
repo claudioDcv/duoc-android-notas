@@ -1,9 +1,9 @@
-package db.models;
+package com.dcv.claudio.mantenedordenotas.db.readers;
 
 import android.provider.BaseColumns;
 
 /**
- * Created by claudio on 28-03-18.
+ * Created by claudio on 29-03-18.
  */
 
 public final class CourseReaderContract {
@@ -20,10 +20,10 @@ public final class CourseReaderContract {
     private static final String TEXT_TYPE = " TEXT";
     private static final String COMMA_SEP = ",";
     protected static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + CourseEntry.TABLE_NAME + " (" +
-                    CourseEntry._ID + " INTEGER PRIMARY KEY," +
-                    CourseEntry.COLUMN_NAME_TITLE + TEXT_TYPE + " )";
+            "CREATE TABLE " + CourseReaderContract.CourseEntry.TABLE_NAME + " (" +
+                    CourseReaderContract.CourseEntry._ID + " INTEGER PRIMARY KEY," +
+                    CourseReaderContract.CourseEntry.COLUMN_NAME_TITLE + TEXT_TYPE + " )";
 
-    protected static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + CourseEntry.TABLE_NAME;
+    protected static final java.lang.String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + CourseReaderContract.CourseEntry.TABLE_NAME;
+
 }

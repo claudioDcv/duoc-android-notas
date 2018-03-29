@@ -7,6 +7,7 @@
     tools:context="com.dcv.claudio.mantenedordenotas.AddCourseActivity">
 
     <Button
+        android:labelFor="@id/btnSaveCourse"
         android:id="@+id/buttonAddCouseClose"
         android:layout_width="47dp"
         android:layout_height="wrap_content"
@@ -26,4 +27,35 @@
         android:text="@string/add_course"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/courseTitleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/title_title"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddCouseClose" />
+
+    <Button
+        android:onClick="createCourse"
+        android:id="@+id/btnSaveCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_text"
+        app:layout_constraintStart_toStartOf="@+id/txtCourseTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtCourseTitle" />
+
+    <EditText
+        android:labelFor="@id/courseTitleTitle"
+        android:id="@+id/txtCourseTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/info_title"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/info_title"
+        app:layout_constraintStart_toStartOf="@+id/courseTitleTitle"
+        app:layout_constraintTop_toBottomOf="@+id/courseTitleTitle"
+        tools:text="@string/info_title" />
 </android.support.constraint.ConstraintLayout>

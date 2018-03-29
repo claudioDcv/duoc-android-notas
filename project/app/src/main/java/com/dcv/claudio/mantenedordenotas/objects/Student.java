@@ -1,4 +1,4 @@
-package objects;
+package com.dcv.claudio.mantenedordenotas.objects;
 
 import java.util.ArrayList;
 

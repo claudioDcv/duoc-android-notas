@@ -1,4 +1,4 @@
-package objects;
+package com.dcv.claudio.mantenedordenotas.objects;
 
 import java.util.ArrayList;
 
@@ -10,6 +10,15 @@ public class Course {
     private Integer id;
     private String title;
     private ArrayList<Student> students;
+
+    public Course(String title) {
+        this.setTitle(title);
+    }
+
+    public Course(Integer id, String title) {
+        this.setId(id);
+        this.setTitle(title);
+    }
 
     public Course(Integer id, String title , ArrayList<Student> students) {
         this.setId(id);
@@ -38,5 +47,11 @@ public class Course {
 
     public void setStudents(ArrayList<Student> students) {
         this.students = students;
+    }
+
+    @Override
+    public String toString() {
+        String t = this.getId() + " : " + this.getTitle();
+        return t;
     }
 }
