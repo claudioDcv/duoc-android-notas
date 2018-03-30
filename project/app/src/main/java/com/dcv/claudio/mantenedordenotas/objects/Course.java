@@ -11,6 +11,9 @@ public class Course {
     private String title;
     private ArrayList<Student> students;
 
+    public Course() {
+    }
+
     public Course(String title) {
         this.setTitle(title);
     }

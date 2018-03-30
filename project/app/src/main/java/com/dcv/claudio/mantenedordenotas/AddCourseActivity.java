@@ -25,6 +25,7 @@ public class AddCourseActivity extends AppCompatActivity {
     public void createCourse(View view) {
         EditText auxTitle = findViewById(R.id.txtCourseTitle);
         String title = auxTitle.getText().toString();
+
         long id = courseModel.create(new Course(title));
         System.out.println(id);
         ArrayList<Course> courses = courseModel.getAll();

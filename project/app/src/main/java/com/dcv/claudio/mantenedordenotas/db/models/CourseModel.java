@@ -33,29 +33,17 @@ public class CourseModel {
     public ArrayList<Course> getAll() {
         SQLiteDatabase db = evaluationReaderDbHelper.getReadableDatabase();
 
-        // Define a projection that specifies which columns from the database
-        // you will actually use after this query.
         String[] projection = {
                 courseEntry._ID,
                 courseEntry.COLUMN_NAME_TITLE
         };
-
-        // Filter results WHERE "title" = 'My Title'
-        // String selection = CourseReaderContract.CourseEntry.COLUMN_NAME_TITLE + " = ?";
-        // String[] selectionArgs = { "Calculo 1" };
-
-        String selection = null;
-        String[] selectionArgs = null;
-
-        // How you want the results sorted in the resulting Cursor
-        String sortOrder =
-                courseEntry.COLUMN_NAME_TITLE + " DESC";
+        String sortOrder = courseEntry.COLUMN_NAME_TITLE + " DESC";
 
         Cursor c = db.query(
                 courseEntry.TABLE_NAME,     // The table to query
                 projection,                 // The columns to return
-                selection,                  // The columns for the WHERE clause
-                selectionArgs,              // The values for the WHERE clause
+                null,                  // The columns for the WHERE clause
+                null,              // The values for the WHERE clause
                 null,               // don't group the rows
                 null,                // don't filter by row groups
                 sortOrder                    // The sort order
@@ -70,5 +58,37 @@ public class CourseModel {
         }
 
         return courses;
+    }
+
+    public Course get(Integer id) {
+        SQLiteDatabase db = evaluationReaderDbHelper.getReadableDatabase();
+        String[] projection = {
+                courseEntry._ID,
+                courseEntry.COLUMN_NAME_TITLE
+        };
+
+        String selection = CourseReaderContract.CourseEntry._ID + " = ?";
+        String[] selectionArgs = { id.toString() };
+        String sortOrder = courseEntry.COLUMN_NAME_TITLE + " DESC";
+
+        Cursor c = db.query(
+                courseEntry.TABLE_NAME,     // The table to query
+                projection,                 // The columns to return
+                selection,                  // The columns for the WHERE clause
+                selectionArgs,              // The values for the WHERE clause
+                null,               // don't group the rows
+                null,                // don't filter by row groups
+                sortOrder                    // The sort order
+        );
+
+        if (c != null) {
+            c.moveToFirst();
+            Integer _id = c.getInt(c.getColumnIndex(courseEntry._ID));
+            String title = c.getString(c.getColumnIndex(courseEntry.COLUMN_NAME_TITLE));
+            Course course = new Course(_id, title);
+
+            return course;
+        }
+        return new Course();
     }
 }
