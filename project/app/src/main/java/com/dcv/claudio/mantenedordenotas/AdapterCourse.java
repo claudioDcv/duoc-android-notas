@@ -27,11 +27,6 @@ public class AdapterCourse extends BaseAdapter {
         this.courses = courses;
     }
 
-    public AdapterCourse (Course course, ArrayList<Course> courses) {
-        this.course = course;
-        this.courses = courses;
-    }
-
     @Override
     public int getCount() {
         return courses.size();
