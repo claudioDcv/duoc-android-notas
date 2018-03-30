@@ -29,4 +29,8 @@ public class MainActivity extends AppCompatActivity {
     public void openAddStudent(View view) {
         this.openActivity(AddStudentActivity.class);
     }
+
+    public void openCourseList(View view) {
+        this.openActivity(CourseListActivity.class);
+    }
 }

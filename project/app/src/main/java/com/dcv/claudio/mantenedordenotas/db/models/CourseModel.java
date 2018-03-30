@@ -6,17 +6,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.dcv.claudio.mantenedordenotas.db.readers.CourseReaderContract;
-import com.dcv.claudio.mantenedordenotas.db.readers.CourseReaderDbHelper;
+import com.dcv.claudio.mantenedordenotas.db.readers.DatabaseHelper;
 import com.dcv.claudio.mantenedordenotas.objects.Course;
 
 import java.util.ArrayList;
 
 
 public class CourseModel {
-    private CourseReaderDbHelper evaluationReaderDbHelper;
+    private DatabaseHelper evaluationReaderDbHelper;
     private CourseReaderContract.CourseEntry courseEntry;
     public CourseModel(Context context) {
-        evaluationReaderDbHelper = new CourseReaderDbHelper(context);
+        evaluationReaderDbHelper = new DatabaseHelper(context);
     }
 
     public long create(Course course) {
@@ -28,6 +28,9 @@ public class CourseModel {
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(courseEntry.TABLE_NAME, null, values);
+
+        db.close();
+
         return newRowId;
     }
     public ArrayList<Course> getAll() {
@@ -57,6 +60,8 @@ public class CourseModel {
             courses.add(course);
         }
 
+        db.close();
+
         return courses;
     }
 
@@ -81,14 +86,56 @@ public class CourseModel {
                 sortOrder                    // The sort order
         );
 
-        if (c != null) {
+        if (c.getCount() > 0) {
             c.moveToFirst();
             Integer _id = c.getInt(c.getColumnIndex(courseEntry._ID));
-            String title = c.getString(c.getColumnIndex(courseEntry.COLUMN_NAME_TITLE));
-            Course course = new Course(_id, title);
+            String _title = c.getString(c.getColumnIndex(courseEntry.COLUMN_NAME_TITLE));
+            Course course = new Course(_id, _title);
+
+            db.close();
 
             return course;
         }
-        return new Course();
+
+        db.close();
+
+        return null;
+    }
+
+    public Course getByTitle(String title) {
+        SQLiteDatabase db = evaluationReaderDbHelper.getReadableDatabase();
+        String[] projection = {
+                courseEntry._ID,
+                courseEntry.COLUMN_NAME_TITLE
+        };
+
+        String selection = CourseReaderContract.CourseEntry.COLUMN_NAME_TITLE + " = ?";
+        String[] selectionArgs = { title };
+        String sortOrder = courseEntry.COLUMN_NAME_TITLE + " DESC";
+
+        Cursor c = db.query(
+                courseEntry.TABLE_NAME,     // The table to query
+                projection,                 // The columns to return
+                selection,                  // The columns for the WHERE clause
+                selectionArgs,              // The values for the WHERE clause
+                null,               // don't group the rows
+                null,                // don't filter by row groups
+                sortOrder                    // The sort order
+        );
+
+        if (c.getCount() > 0) {
+            c.moveToFirst();
+            Integer _id = c.getInt(c.getColumnIndex(courseEntry._ID));
+            String _title = c.getString(c.getColumnIndex(courseEntry.COLUMN_NAME_TITLE));
+            Course course = new Course(_id, _title);
+
+            db.close();
+
+            return course;
+        }
+
+        db.close();
+
+        return null;
     }
 }

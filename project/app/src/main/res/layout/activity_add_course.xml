@@ -7,8 +7,8 @@
     tools:context="com.dcv.claudio.mantenedordenotas.AddCourseActivity">
 
     <Button
-        android:labelFor="@id/btnSaveCourse"
-        android:id="@+id/buttonAddCouseClose"
+        android:labelFor="@id/btnCloseAddCourse"
+        android:id="@+id/btnCloseAddCourse"
         android:layout_width="47dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -35,7 +35,7 @@
         android:layout_marginTop="4dp"
         android:text="@string/title_title"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddCouseClose" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCloseAddCourse" />
 
     <Button
         android:onClick="createCourse"

@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".AddCourseActivity" />
         <activity android:name=".AddStudentActivity" />
-        <activity android:name=".AddEvaluationActivity"></activity>
+        <activity android:name=".AddEvaluationActivity" />
+        <activity android:name=".CourseListActivity" />
+        <activity android:name=".CourseItem"></activity>
     </application>
 
 </manifest>
