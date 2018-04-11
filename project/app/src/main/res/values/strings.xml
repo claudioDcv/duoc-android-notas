@@ -12,4 +12,5 @@
     <string name="course_list">Listado de Cursos</string>
     <string name="content_description_void" />
     <string name="next_icon">▶</string>
+    <string name="id_void">-ID-</string>
 </resources>

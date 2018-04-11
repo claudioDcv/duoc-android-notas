@@ -45,17 +45,6 @@ public class CourseListActivity extends AppCompatActivity {
         AdapterCourse adapterCourse = new AdapterCourse(this, courses);
 
         lv.setAdapter(adapterCourse);
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final int pos = position;
-                Course course = courses.get(pos);
-                System.out.println(course.getTitle());
-                Toast toast = Toast.makeText(CourseListActivity.this, course.getTitle(), Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
     }
 
     public void closeCourseList(View view) {

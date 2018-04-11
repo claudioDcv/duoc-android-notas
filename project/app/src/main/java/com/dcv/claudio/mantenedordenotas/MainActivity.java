@@ -34,3 +34,13 @@ public class MainActivity extends AppCompatActivity {
         this.openActivity(CourseListActivity.class);
     }
 }
+
+
+/* Passing values between views
+Intent intent = new Intent(getBaseContext(), SignoutActivity.class);
+intent.putExtra("EXTRA_SESSION_ID", sessionId);
+startActivity(intent);
+Access that intent on next activity
+
+String s = getIntent().getStringExtra("EXTRA_SESSION_ID");
+ */

@@ -33,6 +33,23 @@ public class CourseModel {
 
         return newRowId;
     }
+
+    public long update(Course course) {
+        SQLiteDatabase db = evaluationReaderDbHelper.getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(courseEntry.COLUMN_NAME_TITLE, course.getTitle());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId = db.update(courseEntry.TABLE_NAME, values,
+                courseEntry._ID + "=?",new String[] { String.valueOf(course.getId())});
+
+        db.close();
+
+        return newRowId;
+    }
+
     public ArrayList<Course> getAll() {
         SQLiteDatabase db = evaluationReaderDbHelper.getReadableDatabase();
 
@@ -137,5 +154,19 @@ public class CourseModel {
         db.close();
 
         return null;
+    }
+
+    public Integer delete(Course course) {
+        SQLiteDatabase db = evaluationReaderDbHelper.getReadableDatabase();
+        Integer id = db.delete(courseEntry.TABLE_NAME, courseEntry._ID + "=" + course.getId(), null);
+        db.close();
+        return id;
+    }
+
+    public Integer delete(Integer id) {
+        SQLiteDatabase db = evaluationReaderDbHelper.getReadableDatabase();
+        Integer _id = db.delete(courseEntry.TABLE_NAME, courseEntry._ID + "=" + id, null);
+        db.close();
+        return _id;
     }
 }

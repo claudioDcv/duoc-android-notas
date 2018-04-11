@@ -25,7 +25,7 @@ public class AddCourseActivity extends AppCompatActivity {
 
         if(courseModel.getByTitle(title) != null) {
             System.out.println("Error");
-            mensaje("Error, ya existe un curso llamado:" + title);
+            msg("Error, ya existe un curso llamado:" + title);
         } else {
             long id = courseModel.create(new Course(title));
             System.out.println(id);
@@ -37,7 +37,7 @@ public class AddCourseActivity extends AppCompatActivity {
         }
     }
 
-    public void mensaje (String texto) {
+    public void msg (String texto) {
         Toast t = Toast.makeText(this, texto, Toast.LENGTH_SHORT);
         t.show();
     }

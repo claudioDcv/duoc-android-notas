@@ -47,15 +47,15 @@
         app:layout_constraintTop_toBottomOf="@+id/txtCourseTitle" />
 
     <EditText
-        android:labelFor="@id/courseTitleTitle"
         android:id="@+id/txtCourseTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/info_title"
+        android:contentDescription="@string/content_description_void"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/info_title"
+        android:labelFor="@id/courseTitleTitle"
+        android:text="@string/content_description_void"
         app:layout_constraintStart_toStartOf="@+id/courseTitleTitle"
         app:layout_constraintTop_toBottomOf="@+id/courseTitleTitle"
-        tools:text="@string/info_title" />
+        tools:text="@string/content_description_void" />
 </android.support.constraint.ConstraintLayout>
