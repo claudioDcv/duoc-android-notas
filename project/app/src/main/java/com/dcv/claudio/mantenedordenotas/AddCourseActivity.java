@@ -23,6 +23,11 @@ public class AddCourseActivity extends AppCompatActivity {
         EditText auxTitle = findViewById(R.id.txtCourseTitle);
         String title = auxTitle.getText().toString();
 
+        if (auxTitle.getText().toString().length() == 0){
+            auxTitle.setError("No puede estar vacio");
+            return;
+        }
+
         if(courseModel.getByTitle(title) != null) {
             System.out.println("Error");
             msg("Error, ya existe un curso llamado:" + title);

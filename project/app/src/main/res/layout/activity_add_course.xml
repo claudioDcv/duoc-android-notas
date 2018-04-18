@@ -54,6 +54,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:labelFor="@id/courseTitleTitle"
+        android:maxLength="@integer/max_length"
         android:text="@string/content_description_void"
         app:layout_constraintStart_toStartOf="@+id/courseTitleTitle"
         app:layout_constraintTop_toBottomOf="@+id/courseTitleTitle"

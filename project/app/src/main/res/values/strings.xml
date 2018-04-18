@@ -13,4 +13,5 @@
     <string name="content_description_void" />
     <string name="next_icon">▶</string>
     <string name="id_void">-ID-</string>
+    <string name="title_course_select">Seleccione Curso</string>
 </resources>

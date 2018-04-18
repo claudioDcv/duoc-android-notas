@@ -1,5 +1,6 @@
 package com.dcv.claudio.mantenedordenotas;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +37,15 @@ public class EditCourseActivity extends AppCompatActivity {
     }
 
     public void btnCourseEditSave(View view) {
+
         EditText txtTitle = findViewById(R.id.txtEditCourseTitle);
+
+        if (txtTitle.getText().toString().length() == 0){
+            txtTitle.setError("No puede estar vacio");
+            return;
+        }
+
+
         TextView txtId = findViewById(R.id.txtEditCourseID);
 
         course.setTitle(txtTitle.getText().toString());
@@ -45,10 +54,17 @@ public class EditCourseActivity extends AppCompatActivity {
             msg("Error, ya existe un curso llamado:" + findModelCourse.getTitle());
         } else {
             courseModel.update(course);
+            msg("Actualizado con exito");
+            finish();
+            this.openActivity(CourseListActivity.class);
         }
     }
     public void msg (String texto) {
         Toast t = Toast.makeText(this, texto, Toast.LENGTH_SHORT);
         t.show();
+    }
+    private void openActivity(Class act) {
+        Intent intent = new Intent(EditCourseActivity.this, act);
+        EditCourseActivity.this.startActivity(intent);
     }
 }
