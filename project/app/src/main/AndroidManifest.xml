@@ -22,7 +22,6 @@
         <activity android:name=".CourseListActivity" />
         <activity android:name=".CourseItem" />
         <activity android:name=".EditCourseActivity" />
-        <activity android:name=".ActivitySpinnerCourse"></activity>
     </application>
 
 </manifest>

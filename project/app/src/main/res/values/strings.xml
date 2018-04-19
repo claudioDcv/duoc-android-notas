@@ -14,4 +14,6 @@
     <string name="next_icon">▶</string>
     <string name="id_void">-ID-</string>
     <string name="title_course_select">Seleccione Curso</string>
+    <string name="label_fullname">Nombre Completo</string>
+    <string name="label_natural_key">RUT</string>
 </resources>
